@@ -20,18 +20,21 @@ export const countryDropDown = (obj, parent) => {
   }
 }
 
-export const dropDownMenuChange = (element) => {
-  element.addEventListener('change', async () => {
+export const dropDownMenuChange = (element, element2) => {
+  (element, element2).addEventListener('change', async () => {
     let rateObj = await fetchRates(`https://api.exchangeratesapi.io/latest?base=${element.value}`)
-    countryFrom.innerHTML = rateObj.base;
+    countryFrom.innerHTML = selectCountryDropDownMenuOne.value;
 
     for (const rate of Object.entries(rateObj.rates)) {
       const [country, covRate] = rate
-      if (selectCountryDropDownMenuTwo.value === country) {
-        priceConverted.innerText = `= ${covRate.toFixed(2)}`
+      if ((element === selectCountryDropDownMenuOne ? selectCountryDropDownMenuTwo : selectCountryDropDownMenuOne).value === country) {
+        priceConverted.innerText = `= ${covRate.toFixed(4)}`
         countryToo.innerText = selectCountryDropDownMenuTwo.value
       }
     }
   })
 }
 
+// export const CalculateRate = () => {
+
+// }

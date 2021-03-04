@@ -1,4 +1,4 @@
-import { fetchRates, countryDropDown, dropDownMenuChange, selectCountryDropDownMenuOne, selectCountryDropDownMenuTwo,countryFrom, priceConverted } from './Utilities.js'
+import { fetchRates, countryDropDown, dropDownMenuChange, selectCountryDropDownMenuOne, selectCountryDropDownMenuTwo,countryFrom, priceConverted, countryToo} from './Utilities.js'
 const weatherAppUrl = 'https://api.exchangeratesapi.io/latest'
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 })
 
 
-dropDownMenuChange(selectCountryDropDownMenuOne)
-dropDownMenuChange(selectCountryDropDownMenuTwo)
+dropDownMenuChange(selectCountryDropDownMenuOne, selectCountryDropDownMenuTwo)
+
 
 
 
