@@ -21,7 +21,6 @@ export const countryDropDown = (obj, parent) => {
     option.innerHTML = currency
     parent.appendChild(option)
   })
-  
 }
 
 

@@ -1,12 +1,16 @@
 import { fetchRates, countryDropDown, selectCountryDropDownMenuOne, selectCountryDropDownMenuTwo } from './Utilities.js'
 const weatherAppUrl = 'https://api.exchangeratesapi.io/latest'
- const unitInput = document.querySelector('.unitInput1')
+const unitInput = document.querySelector('.unitInput1')
+const swapBtn = document.querySelector('.btn')
 
 document.addEventListener('DOMContentLoaded', async () => {
+  const exchangeRateCalc = document.querySelector('.exchangeRateCalc')
   let Allrates = await fetchRates(weatherAppUrl)
   countryDropDown(Allrates.rates, selectCountryDropDownMenuOne)
   countryDropDown(Allrates.rates, selectCountryDropDownMenuTwo)
-  calc()
+  selectCountryDropDownMenuTwo.value = 'BGN'
+  exchangeRateCalc.innerText = 'Select Your Currencies'
+  
 })
 
 
@@ -30,6 +34,12 @@ async function calc() {
 }
 
 
+swapBtn.addEventListener('click', () => {
+  const temp = selectCountryDropDownMenuOne.value;
+  selectCountryDropDownMenuOne.value = selectCountryDropDownMenuTwo.value
+  selectCountryDropDownMenuTwo.value = temp;
+  calc()
+})
 
 
 
