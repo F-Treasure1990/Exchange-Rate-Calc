@@ -1,7 +1,6 @@
 export const [selectCountryDropDownMenuOne, selectCountryDropDownMenuTwo] = document.
   querySelectorAll('#selectCountry')
-export const unitInput = document.querySelector('.unitInput1')
-export const unitOutput = document.querySelector('.unitInput2')
+
 
 
 export async function fetchRates(url) {
@@ -10,17 +9,20 @@ export async function fetchRates(url) {
   return rates
 }
 
-
-
 export const countryDropDown = (obj, parent) => {
+  let array = []
   for (const rate in obj) {
-    const option = document.createElement('option');
-    option.setAttribute('value', `${rate}`)
-    option.innerHTML = `${rate}`
-    parent.appendChild(option)
+    array.push(rate)
   }
+  array.sort()
+  array.forEach((currency)=> {
+    const option = document.createElement('option');
+    option.setAttribute('value', currency)
+    option.innerHTML = currency
+    parent.appendChild(option)
+  })
+  
 }
-
 
 
 

@@ -27,8 +27,6 @@ async function calc() {
   exchangeRateCalc.innerText = `1 ${currency_one} = ${rate} ${currency_two}`
 
   unitOutput.value = (unitInput.value * rate).toFixed(3)
-
-
 }
 
 
